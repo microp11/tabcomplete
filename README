@@ -1,5 +1,10 @@
-What is tab completion: http://en.wikipedia.org/wiki/Command-line_completion
+Tab completion is: http://en.wikipedia.org/wiki/Command-line_completion
 
-This is a bash-type multi-tab completion code snippet that was written in response to a feature request for the Nodester IRC project: http://irc.nodester.com/. Encouraged by the person that made the feature request, sirkitree (https://github.com/sirkitree) and by alejandromg (https://github.com/alejandromg) from Nodester (https://github.com/nodester), here is the snippet for whomever is interested.
+This is a bash-type multi-tab rotating completion code snippet that was written in response to a feature request for the Nodester IRC project: http://irc.nodester.com/. Encouraged by the person that made the feature request, sirkitree (https://github.com/sirkitree) and by alejandromg (https://github.com/alejandromg) from Nodester (https://github.com/nodester), here is the snippet for whomever is interested.
 
 I only tested it on Windows Xp: IE8 version 8.0.6001.18702, FF 11.0 and Chrome 18.0.1025.142 m.
+
+Limitations:
+The code was written to handle irc nicks and uses space as separator. The completion source is represented by any array of such nicks: ["abraham", "abacus", "brocard", "abba", "crocard", "cribauld", "cronos"]. The nicks are one-word entities and cannot contain spaces!   
+
+Enjoy!

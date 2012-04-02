@@ -12,10 +12,11 @@
                 sourcePos = 0, // The search starting position
                 // Varibles used in multi tab completion
                 patternPos = -1,
-                prePattern = "";
+                prePattern = "",
+                el = $(this); // Element
 
             // Start snippet
-            this.keydown(function (event) {
+            el.bind('keydown', function (event) {
                 if (source.length === 0) {
                     source = nicks; // Initialization in case we press Tab with no prior input
                 }
@@ -23,7 +24,7 @@
                     event.preventDefault();
                     if (prevKeyWasTab === false) {
                         prevKeyWasTab = true;
-                        pattern = this.val();
+                        pattern = el.val();
                         patternPos = pattern.lastIndexOf(" ");
                         if (patternPos !== -1) {
                             prePattern = pattern.substr(0, patternPos + 1);
@@ -34,14 +35,14 @@
                         candidate = incrementalSearch(pattern, source, sourcePos);
                         if (candidate.length > 0) {
                             // Candidate found
-                            this.val(prePattern + candidate);
+                            el.val(prePattern + candidate);
                             return;
                         }
                     } else {
                         candidate = incrementalSearch(pattern, source, sourcePos);
                         if (candidate.length > 0) {
                             // Candidate found
-                            this.val(prePattern + candidate);
+                            el.val(prePattern + candidate);
                             return;
                         }
                     }
@@ -73,7 +74,7 @@
                 return result;
             };
 
-        )};
+        });
 
     };
 

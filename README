@@ -6,8 +6,11 @@ It was tested on a Windows Xp machine over IE8 version 8.0.6001.18702, FF 11.0 a
 
 The code uses space as separator. The completion source is represented by any string array: ["Abraham Lincoln", "abacus Moire", "22", "brocard 1", "ab!ba", "crocard", "cribauld", "cronos"].   
 
+The file "snippet.html" contains code that you can just copy/paste into your own project. Currently it still depends on jQuery but the idea is, if possible, to make it independent and pure js.
+The jQueryPlugin is, according to sirkitree, its author: "a standalone .js file that could easily be plugged into other people's projects".  
+
 Usage:
-    We want our message to be: "alejandromg, microp11 say hi"
+    We want our message to be: "alejandromg, microp11 says hi"
     So we write:
     al <TAB>
     msg: alejandromg

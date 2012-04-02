@@ -6,4 +6,14 @@ It was tested on a Windows Xp machine over IE8 version 8.0.6001.18702, FF 11.0 a
 
 The code uses space as separator. The completion source is represented by any string array: ["Abraham Lincoln", "abacus Moire", "22", "brocard 1", "ab!ba", "crocard", "cribauld", "cronos"].   
 
+Usage:
+    We want our message to be: "alejandromg, microp11 say hi"
+    So we write:
+    al <TAB>
+    msg: alejandromg
+    then we type ", mic" <TAB>
+    msg: alejandromg, microp11
+    then " says hi"
+    so the msg will be "alejandromg, microp11, says hi" :P
+
 Enjoy!

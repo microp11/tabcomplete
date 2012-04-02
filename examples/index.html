@@ -4,90 +4,19 @@
 <meta charset="ISO-8859-1">
     <title>tabcomplete</title>
     <script src="http://code.jquery.com/jquery.js" type="text/javascript"></script>
+    <script src="../jquery.tabcomplete.js" type="text/javascript"></script>
 </head>
 <body>
 
-<div> 
+<div>
    <form>
        <input type="text" id="text_input" class="btn" placeholder="type a message" size="80">
    </form>
 </div>
 
 <script type="text/javascript">
-
-$(document).ready(function() {
-
-    //variables used in tab completion
-    var prevKeyWasTab = false;
-    var pattern = ""; //text fragment respective pattern to look for
-    var candidate = ""; //candidate
-    var source = []; //array of values to be matched
-    var sourcePos = 0; //the search starting position
-    //varibles used in multi tab completion
-    var patternPos = -1;
-    var prePattern = "";
-    
-    //start snippet
-    $('#text_input').keydown( function(event) {
-        if (source.length == 0) {
-            source = nicks; //initialization in case we press Tab with no prior input
-        };
-        if (event.keyCode == 9) {
-            event.preventDefault();
-            if (prevKeyWasTab == false) {
-                prevKeyWasTab = true;
-                pattern = $('#text_input').val();
-                patternPos = pattern.lastIndexOf(" ");
-                if (patternPos != -1 ) {
-                    prePattern = pattern.substr(0, patternPos+1);
-                    pattern = pattern.substr(patternPos+1);
-                };
-                pattern = new RegExp("^"+pattern, "i");
-                sourcePos = 0;
-                candidate = incrementalSearch(pattern, source, sourcePos);
-                if (candidate.length > 0) {
-                    //candidate found
-                    $('#text_input').val(prePattern+candidate);
-                    return;
-                }
-            } else {
-                candidate = incrementalSearch(pattern, source, sourcePos);
-                if (candidate.length > 0) {
-                    //candidate found
-                    $('#text_input').val(prePattern+candidate);
-                    return;
-                }
-            }
-        } else {
-            prevKeyWasTab = false;
-            prePattern = "";
-            source = nicks; //we do not want the source to change during tabcompletion
-        }
-    });
-
-    var incrementalSearch = function(pattern, source, sp) {
-        var result = "";
-        var r = 0;
-        for (var i = sp; i < source.length; i++) {
-            r = source[i].search(pattern);
-            sourcePos = (i+1 > source.length-1) ? 0 : i+1;
-            if (r == 0) {
-                return source[i];
-            }
-        }
-        for (var i = 0; i < sp; i++) {
-            r = source[i].search(pattern);
-            sourcePos = i+1;
-            if (r == 0) {
-                return source[i];
-            }
-        }
-        return result;
-    };
-    //end snippet
-
-    //completion source
-    //this is your source, an array of irc nicks (in part the "#ubuntu" users list at the time of writing this article)
+    // Completion source:
+    // This is your source, an array of irc nicks (in part the "#ubuntu" users list at the time of writing this article)
     var nicks = ["@Flood Bot1", "@Flood Bot2", "acmeinc1", "b1g1r0n", "Odd-rationale", "oddie", "Odysimus", "OerHeks",
                  "OffbeatAdam", "Okazaki-san", "OkropNick", "olala22000", "Oli", "omry_", "babble", "OneFix_Work",
                  "onekenthomas", "Onixs", "Onkeltem", "Ool", "openbsddd", "openvoid", "opticlove", "orphan", "osse",
@@ -241,7 +170,7 @@ $(document).ready(function() {
                  "kzinti", "arkx", "l0nr4n", "L0rdShrek", "L3top", "lahwran", "lake", "lambdan", "Lantizia", "lapion",
                  "larryone", "larstov", "aromasca", "lasers", "lcwei", "learningc", "ledesmam", "leopardweasel",
                  "LeroyR91", "lexi", "liberal", "libertyprime", "lilstevie", "AcidRain2012", "Arsapi", "linagee",
-                 "Line_", "LinuxRants", "linxeh", "Lisimba3", "littlebearz", "LittleFool", "LjL", "ljt", "lkslawek", 
+                 "Line_", "LinuxRants", "linxeh", "Lisimba3", "littlebearz", "LittleFool", "LjL", "ljt", "lkslawek",
                  "aS2", "LL2|Android", "llutz", "lmoura", "lnxslck", "localhost", "locherm", "LoganCloud", "Logan_",
                  "lollo64it", "lol_no_u", "asakura", "loop-", "LoRez", "Loshki", "loucal", "lsm-desktop",
                  "LubuntuPowered", "lucascastro", "luist", "Luke", "Lunar_Lamp", "asherkin", "Lupinedk", "Lynx_",
@@ -267,8 +196,8 @@ $(document).ready(function() {
                  "nopf", "nord", "noreason", "notjoe", "nou", "Noxville", "npope", "nronksr", "nrpil", "B14CKB0X",
                  "NSNO", "Nullifi3d", "Num83rGuy", "nW44b", "nyuszika7h", "nza", "oco2", "oconnore", "Octane",
                  "octanium"];
-});
 
+    $("#text_input").tabComplete(nicks);
 </script>
 
 </body>

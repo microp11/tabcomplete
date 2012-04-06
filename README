@@ -2,13 +2,14 @@ Tab completion is: http://en.wikipedia.org/wiki/Command-line_completion
 
 This is a bash-type multi-tab, rotating and case-insensitive completion code snippet, that was written in response to a feature request for the Nodester IRC project: http://irc.nodester.com/. Encouraged by the person that made the feature request, sirkitree (https://github.com/sirkitree) and by alejandromg (https://github.com/alejandromg) from Nodester (https://github.com/nodester), here is the snippet for whomever is interested.
 
-It was tested on a Windows XP machine over IE8 version 8.0.6001.18702, FF 11.0 and Chrome 18.0.1025.142 m.
+It was tested with IE8 version 8.0.6001.18702, FF 11.0 and Chrome 18.0.1025.142 m on a WindowsXP machine.
 
-The code uses space as separator. The completion source is represented by any string array: ["Abraham Lincoln", "abacus Moire", "22", "brocard 1", "ab!ba", "crocard", "cribauld", "cronos"].   
+The completion source is represented by any string array, e.g., ["Abraham Lincoln", "abacus Moire", "22", "brocard 1", "ab!ba", "crocard", "cribauld", "cronos"]. In our examples, the "nicks" array is either inline or external to the respective html file.
 
-The file "snippet.html" contains code that you can just copy/paste into your own project. Currently it still depends on jQuery but the idea is, if possible, to make it independent and pure js.
-
+The folder jQueryInline contains code that you can just copy/paste into your own project. This code depends on jQuery.
 The jQueryPlugin is, according to sirkitree, its author: "a standalone .js file that could easily be plugged into other people's projects".  
+The folder noJQuery, as the name implies, contains code that has no dependency to jQuery.
+
 
 Usage:
     We want our message to be: "alejandromg, microp11 says hi"

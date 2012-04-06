@@ -10,7 +10,7 @@
                 candidate = "", // Candidate
                 source = [], // Array of values to be matched
                 sourcePos = 0, // The search starting position
-                // Varibles used in multi tab completion
+                // Variables used in multi tab completion
                 patternPos = -1,
                 prePattern = "",
                 el = $(this); // Element
